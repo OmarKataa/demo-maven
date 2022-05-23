@@ -12,11 +12,6 @@ import com.example.model.Person;
 public class PersonService {
 	ArrayList<Person> persons = new ArrayList<Person>();
 	public PersonService() {
-		
-		Person p = new Person();
-		
-		//ooooooooooooooooooooooooooooooooooo
-		
 		Person p = new Person();
 		p.setId("1");
 		p.setAge(21);
@@ -56,4 +51,3 @@ public class PersonService {
 		return persons;
 	}
 }
-
