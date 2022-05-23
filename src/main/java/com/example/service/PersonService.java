@@ -14,11 +14,7 @@ public class PersonService {
 	public PersonService() {
 		
 		Person p = new Person();
-		p.setId("1");
-		p.setAge(21);
-		p.setFirstName("omar");
-		p.setLastName("kataa");
-		persons.add(p);
+		
 
 		
 		Person p = new Person();
