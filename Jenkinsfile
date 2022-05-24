@@ -14,7 +14,7 @@ pipeline {
       
        stage('build') {
             steps {
-                sh 'maven build'
+                sh 'maven package'
             }
         }
       
