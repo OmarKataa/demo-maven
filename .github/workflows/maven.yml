@@ -35,4 +35,4 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           push: true
-          tags: omarkataa/jenkins:95
+          tags: omarkataa/jenkins:latest
