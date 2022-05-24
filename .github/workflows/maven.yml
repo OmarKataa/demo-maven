@@ -25,14 +25,14 @@ jobs:
     - name: Build with Maven
       run: mvn -B package --file pom.xml
       
-    - name: Login to DockerHub
-      uses: docker/login-action@v2
+    - id: docker-publish
+      name: Build image
+      uses: bitovi/github-actions-docker-publish@1.0.2
       with:
-          username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_TOKEN }}
-    -
-        name: Build and push
-        uses: docker/build-push-action@v3
-        with:
-          push: true
-          tags: omarkataa/jenkins:latest
+        docker_username: ${{ secrets.DOCKERHUB_USERNAME }}
+        docker_password: ${{ secrets.DOCKERHUB_PASSWORD }}
+        checkout: 'false'
+        image_tag: it
+        sha: 'true' # won't do anything since image_tag is set
+        org_name: omarkataa
+        repo_name: omarkataa/jenkins
