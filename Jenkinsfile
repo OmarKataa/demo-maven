@@ -2,7 +2,7 @@ pipeline {
     agent any
   tools{
   
-    maven 'maven'
+    maven 'maven-3.8.5'
   
   }
     stages {
@@ -13,6 +13,16 @@ pipeline {
         }
       
        stage('build') {
+           
+           when{
+               
+               expression{
+                   
+                BRANCH_NAME == 'master'   
+                   
+                   
+               }
+           }
             steps {
                 sh 'mvn package'
             }
