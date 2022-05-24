@@ -25,14 +25,10 @@ jobs:
     - name: Build with Maven
       run: mvn -B package --file pom.xml
       
-    - id: docker-publish
-      name: Build image
-      uses: bitovi/github-actions-docker-publish@1.0.2
+    - name: Dockerize
+      if: success()
+      uses: manusa/actions-publish-docker@v1.1.2
       with:
-        docker_username: ${{ secrets.DOCKERHUB_USERNAME }}
-        docker_password: ${{ secrets.DOCKERHUB_PASSWORD }}
-        checkout: 'false'
-        image_tag: it
-        sha: 'true' # won't do anything since image_tag is set
-        org_name: omarkataa
-        repo_name: omarkataa/jenkins
+        name: organization/image_name
+        username: ${{ secrets.DOCKER_HUB_USER }}
+        password: ${{ secrets.DOCKER_HUB_PASSWORD }}
