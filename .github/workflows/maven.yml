@@ -12,7 +12,7 @@ on:
 jobs:
   build:
 
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
 
     steps:
     - uses: actions/checkout@v3
@@ -32,3 +32,4 @@ jobs:
         name: omarkataa/jenkins
         username: ${{ secrets.DOCKER_HUB_USER }}
         password: ${{ secrets.DOCKER_HUB_PASSWORD }}
+        run: docker run -d --name maven -p 8090:8090 omarkataa/jenkins
